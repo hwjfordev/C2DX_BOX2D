@@ -23,4 +23,51 @@ these in code rot hell. GET IT WHILE IT'S HOT!
 SETTING UP BOX2D IN COCOS2D-X V3.2 
 ==================================
 
-### Coming very soon
+Use the CMakeList.txt provided here  
+- Only changes are OFF for Chipmunk flag and ON for Box2D  
+  
+  
+Use the ccConfig.h here and replace the packaged one located in  
+<YOUR_C2DX_ROOT_FLDR>/cocos/base/  
+or just look through and find the lines,  
+  
+#ifndef CC_USE_PHYSICS  
+#define CC_USE_PHYSICS 1  
+#endif  
+  
+and set to,  
+#define CC_USE_PHYSICS 0  
+
+
+Go through the typical project creation process of,  
+
+`cocos new -l cpp -d ~/path/to/put/project -p org.whatever.here project_name`
+
+Next part depend on your IDE and compiler
+
+### Microsoft Visual Studios 2012
+
+I. Copy the folder `<YOUR_C2DX_ROOT_FLDR>/external/Box2D` into your project's 
+external folder.
+
+II. In your MSVC2012 IDE, right click your Solution and `Add -> Exisiting Project..`
+Navigate to the folder you transferred in the previous step and use the file
+`Box2D/proj.win32/Box2D.vcxproj` 
+Should see it listed in your Solution Explorer with the name `libcocos2d`
+Right click it and `Build`
+
+III. Right Click your main solution and `Properties -> Configuration Properties -> Linker -> Input -> Additional Dependencies`
+Add `libbox2d.lib` and now the row Additional Dependencies should read 
+`libbox2d.lib;%(AdditionalDependencies)`
+
+**What this does is to tell the linker it should construct the executable with this the box2d library
+Shouldn't get any LNKR errors now 
+
+IV. In the same sidebar, you should see C/C++ -- expand it.
+Click on General and add the line `$(EngineRoot)external\Box2D` to the row `Additional Include Directories`
+
+**This lets the compiler know what it should be including when it sees the line `#include "Box2D\Box2d.h"`
+Now the intellisense won't scream fuck all and give the error 'cannot open source file'
+
+V. Now add #include "Box2D\Box2D.h" where ever you want and Box2d objects are within the namespace `BOX2D_H`
+Congrats, we've ventured through hell and back and now your real suffering can begin. woOOOOooo...
