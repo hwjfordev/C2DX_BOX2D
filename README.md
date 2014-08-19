@@ -41,7 +41,7 @@ Go through the typical project creation process of,
 
 `cocos new -l cpp -d ~/path/to/put/project -p org.whatever.here project_name`
 
-Next part depend on your IDE and compiler
+Next part depends on your IDE and compiler
 
 ### Microsoft Visual Studios 2012
 
@@ -58,14 +58,14 @@ III. Right Click your main solution and `Properties -> Configuration Properties 
 Add `libbox2d.lib` and now the row Additional Dependencies should read 
 `libbox2d.lib;%(AdditionalDependencies)`
 
-**What this does is to tell the linker it should construct the executable with the box2d library
-Shouldn't get any LNKR errors now 
+**What this does is to tell the linker it should construct the executable with the box2d library  
+Shouldn't get any LNKR errors now  
+  
+IV. In the same sidebar, you should see C/C++ -- expand it.  
+Click on `General` and add the line `$(EngineRoot)external\Box2D` to the row `Additional Include Directories`  
 
-IV. In the same sidebar, you should see C/C++ -- expand it.
-Click on General and add the line `$(EngineRoot)external\Box2D` to the row `Additional Include Directories`
+**This lets the compiler know what it should be including when it sees the line `#include "Box2D\Box2d.h"`  
+Now the intellisense won't scream fuck all and give the error 'cannot open source file'  
 
-**This lets the compiler know what it should be including when it sees the line `#include "Box2D\Box2d.h"`
-Now the intellisense won't scream fuck all and give the error 'cannot open source file'
-
-V. Now add #include "Box2D\Box2D.h" where ever you want and Box2d objects are within the namespace `BOX2D_H`
-Congrats, we've ventured through hell and back and now your real suffering can begin. woOOOOooo...
+V. Now add #include "Box2D\Box2D.h" where ever you want and Box2d objects are within the namespace `BOX2D_H`  
+Congrats, we've ventured through hell and back and now your real suffering can begin. woOOOOooo...  
