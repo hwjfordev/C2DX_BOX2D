@@ -15,7 +15,7 @@ then just don't get caught if it's not cool.
 Without futher ado, the tutorials here are built using cocos2d-x v3.2 + box2D  
 and MSVC2012 although I've purposefully left out the build files since YMMV.  
 I must note that the box2D is aready packaged in the cocos2d-x external folder.  
-If Version > 3.2 is released, I will update the guide to setting up Box2D  
+If Version > 3.2 is released, I will update the guide to setting up Box2D if  
 there isn't major backwards incompatibility. Otherwise, I'll be leaving  
 these in code rot hell. GET IT WHILE IT'S HOT!  
   
