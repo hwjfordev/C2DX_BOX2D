@@ -28,7 +28,7 @@ Use the CMakeList.txt provided here
   
   
 Use the ccConfig.h here and replace the packaged one located in  
-<YOUR_C2DX_ROOT_FLDR>/cocos/base/  
+`<YOUR_C2DX_ROOT_FLDR>/cocos/base/`
 or just look through and find the lines,  
 `#ifndef CC_USE_PHYSICS`  
 `#define CC_USE_PHYSICS 1`    
