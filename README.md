@@ -30,15 +30,13 @@ Use the CMakeList.txt provided here
 Use the ccConfig.h here and replace the packaged one located in  
 <YOUR_C2DX_ROOT_FLDR>/cocos/base/  
 or just look through and find the lines,  
-  
-#ifndef CC_USE_PHYSICS  
-#define CC_USE_PHYSICS 1  
-#endif  
+`#ifndef CC_USE_PHYSICS`  
+`#define CC_USE_PHYSICS 1`    
+`#endif`  
   
 and set to,  
-#define CC_USE_PHYSICS 0  
-
-
+`#define CC_USE_PHYSICS 0`  
+  
 Go through the typical project creation process of,  
 
 `cocos new -l cpp -d ~/path/to/put/project -p org.whatever.here project_name`
@@ -60,7 +58,7 @@ III. Right Click your main solution and `Properties -> Configuration Properties 
 Add `libbox2d.lib` and now the row Additional Dependencies should read 
 `libbox2d.lib;%(AdditionalDependencies)`
 
-**What this does is to tell the linker it should construct the executable with this the box2d library
+**What this does is to tell the linker it should construct the executable with the box2d library
 Shouldn't get any LNKR errors now 
 
 IV. In the same sidebar, you should see C/C++ -- expand it.
